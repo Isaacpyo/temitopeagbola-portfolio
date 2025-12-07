@@ -2,7 +2,7 @@
 
 A high-performance, accessible, and SEO-optimized developer portfolio built with modern web technologies. This project showcases my work in Distributed Systems, AI/MLOps, and Cloud Engineering through detailed case studies and technical writing.
 
-![Portfolio Preview](public/og-image.png)
+![Portfolio Preview](public/Screenshot-temitope.png)
 
 ## 🚀 Tech Stack
 
