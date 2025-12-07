@@ -1,5 +1,5 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { ArrowLeft, BrainCircuit, Activity, GitMerge, CheckCircle, Server, Database, ShieldCheck, Code2, Layers } from 'lucide-react';
+import { ArrowLeft, BrainCircuit, Activity, GitMerge, CheckCircle, Server,  ShieldCheck, Code2 } from 'lucide-react';
 import PageTransition from '../components/layout/PageTransition';
 import Button from '../components/ui/Button';
 import ArchitectureDiagram from '../components/ui/ArchitectureDiagram'; // Import the new diagram

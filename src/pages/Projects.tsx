@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/mockData';
 import type { Project } from '../types';
-import { Github, ExternalLink } from 'lucide-react';
 import PageTransition from '../components/layout/PageTransition';
 import ProjectModal from '../components/ui/ProjectModal';
 

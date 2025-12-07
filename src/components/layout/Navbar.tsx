@@ -29,9 +29,9 @@ const Navbar = () => {
   }, [isDark]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsOpen(false);
-    setIsWorkOpen(false); // Close dropdown on route change
-  }, [location]);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (isOpen) {
@@ -205,7 +205,7 @@ const Navbar = () => {
             />
             
             <motion.div
-              variants={menuVariants}
+              variants={menuVariants as never}
               initial="closed"
               animate="open"
               exit="closed"

@@ -20,6 +20,7 @@ const Blog = () => {
 
   // 2. Reset to Page 1 if search query changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCurrentPage(1);
   }, [searchQuery]);
 

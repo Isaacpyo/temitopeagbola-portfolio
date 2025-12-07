@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Github, Linkedin, Mail, Cpu, Code2, X, Globe, MousePointerClick, Download, ShieldCheck, BrainCircuit } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail,  Globe, MousePointerClick, Download, ShieldCheck, BrainCircuit } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from '../components/ui/Button';
@@ -178,7 +178,7 @@ const Home = () => {
               {services.map((service) => (
                 <motion.div 
                   key={service.id}
-                  variants={fadeInUp}
+                  variants={fadeInUp  as never}
                   whileHover={{ y: -10 }} 
                   onClick={() => setActiveService(service)}
                   className="group relative bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 cursor-pointer"

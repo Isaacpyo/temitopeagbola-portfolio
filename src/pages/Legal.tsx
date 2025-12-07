@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Shield, Eye, Accessibility, FileText, CheckCircle } from 'lucide-react';
+import { Shield, Eye, Accessibility, CheckCircle } from 'lucide-react';
 import PageTransition from '../components/layout/PageTransition';
 
 const Legal = () => {

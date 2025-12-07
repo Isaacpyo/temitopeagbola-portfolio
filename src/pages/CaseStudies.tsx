@@ -9,7 +9,7 @@ import {
   GitMerge, 
   ShieldCheck, 
   Code2, 
-  ExternalLink 
+  
 } from 'lucide-react';
 import PageTransition from '../components/layout/PageTransition';
 import Button from '../components/ui/Button';

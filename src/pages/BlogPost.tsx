@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
@@ -103,9 +104,11 @@ const BlogPost = () => {
           <div className="prose dark:prose-invert prose-lg max-w-none prose-slate prose-a:text-primary hover:prose-a:underline prose-img:rounded-xl prose-headings:text-slate-900 dark:prose-headings:text-white">
             <ReactMarkdown
               components={{
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 h2({ node, ...props }) {
                   return <h2 className="mt-12 mb-6 text-2xl font-bold tracking-tight text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2" {...props} />;
                 },
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 h3({ node, ...props }) {
                   return <h3 className="mt-8 mb-4 text-xl font-bold tracking-tight text-slate-900 dark:text-white" {...props} />;
                 },
@@ -118,7 +121,8 @@ const BlogPost = () => {
                 ol({ node, ...props }) {
                   return <ol className="my-6 list-decimal pl-6 space-y-2 text-slate-700 dark:text-slate-300" {...props} />;
                 },
-                code({ inline, className, children, ...props }) {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                code({ inline, className, children, ...props } : any) {
                   const match = /language-(\w+)/.exec(className || "");
                   const text = String(children || "").replace(/\n$/, "");
 

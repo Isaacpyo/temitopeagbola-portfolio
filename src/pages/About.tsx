@@ -2,8 +2,7 @@ import PageTransition from '../components/layout/PageTransition';
 import { experiences, education } from '../data/mockData';
 import { motion } from 'framer-motion';
 import { 
-  Code, 
-  Server, 
+    Server, 
   Cpu, 
   GraduationCap, 
   Briefcase, 
