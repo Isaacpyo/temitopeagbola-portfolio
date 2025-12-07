@@ -1,0 +1,6 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Point bots to the Sitemap (Crucial for Sitelinks)
+Sitemap: https://temitopeagbola.com/sitemap.xml
