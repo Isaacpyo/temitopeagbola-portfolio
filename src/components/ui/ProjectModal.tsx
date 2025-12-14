@@ -148,7 +148,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                   <Github className="w-4 h-4" /> View Code
                 </Button>
               </a>
-              <a href={project.liveUrl} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+              <a href={project.link ?? project.link} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
                 <Button className="w-full justify-center">
                   <ExternalLink className="w-4 h-4" /> Live Demo
                 </Button>
