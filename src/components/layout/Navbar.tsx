@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
-import { Menu, X, Moon, Sun, MessageSquare, ChevronDown } from 'lucide-react';
+import { Menu, X, Moon, Sun, MessageSquare, ChevronDown, Github, Linkedin, Twitter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../ui/Button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isWorkOpen, setIsWorkOpen] = useState(false);
-  // 👇 State to track scroll for transparent background
   const [isScrolled, setIsScrolled] = useState(false);
   
   const [isDark, setIsDark] = useState(() => {
@@ -42,7 +41,6 @@ const Navbar = () => {
     }
   }, [isOpen]);
 
-  // 👇 Scroll listener for Navbar background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -67,7 +65,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* 👇 Updated nav classes for transparent-to-solid scroll effect */}
       <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-light/80 dark:bg-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800' 
@@ -87,7 +84,6 @@ const Navbar = () => {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center space-x-8">
-              
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
@@ -162,7 +158,6 @@ const Navbar = () => {
               </NavLink>
               
               <Link to="/contact">
-                {/* 👇 Removed glowing effects, added rounded-full */}
                 <Button className="px-5 py-2 text-sm h-10 shadow-md rounded-full">
                   Let's Talk
                 </Button>
@@ -225,8 +220,7 @@ const Navbar = () => {
             >
               <div className="flex flex-col h-full">
                 <div className="space-y-6 mt-4">
-                  
-                  {/* About */}
+                  {/* Links (About, Work, Blog) ... */}
                   <motion.div custom={0} variants={linkVariants}>
                     <NavLink
                       to="/about"
@@ -238,7 +232,6 @@ const Navbar = () => {
                   </motion.div>
                   <div className="h-[1px] w-full bg-slate-200 dark:bg-slate-800" />
 
-                  {/* Mobile Work Dropdown */}
                   <motion.div custom={1} variants={linkVariants}>
                     <button 
                       onClick={() => setIsWorkOpen(!isWorkOpen)}
@@ -263,7 +256,6 @@ const Navbar = () => {
                   </motion.div>
                   <div className="h-[1px] w-full bg-slate-200 dark:bg-slate-800" />
 
-                  {/* Blog */}
                   <motion.div custom={2} variants={linkVariants}>
                     <NavLink
                       to="/blog"
@@ -274,15 +266,28 @@ const Navbar = () => {
                     </NavLink>
                   </motion.div>
                   <div className="h-[1px] w-full bg-slate-200 dark:bg-slate-800" />
-
                 </div>
 
-                <div className="mt-auto mb-10 pt-8">
-                   <Link to="/contact" onClick={() => setIsOpen(false)}>
+                {/* 👇 UPDATED: Mobile Footer LEFT ALIGNED */}
+                <div className="mt-auto mb-10 pt-8 flex flex-col items-start gap-6 w-full">
+                   <Link to="/contact" onClick={() => setIsOpen(false)} className="w-full">
                       <Button className="w-full h-14 text-lg shadow-xl rounded-full">
                         Let's Talk <MessageSquare className="w-5 h-5 ml-2" />
                       </Button>
                    </Link>
+
+                   {/* 👇 LEFT ALIGNED SOCIAL ICONS */}
+                   <div className="flex justify-start gap-8 text-slate-500 dark:text-slate-400">
+                      <a href="https://github.com/isaacpyo" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        <Github className="w-8 h-8" />
+                      </a>
+                      <a href="https://linkedin.com/in/temitopeagbola" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        <Linkedin className="w-8 h-8" />
+                      </a>
+                      <a href="https://x.com/temitopeagbola" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        <Twitter className="w-8 h-8" />
+                      </a>
+                   </div>
                 </div>
               </div>
             </motion.div>

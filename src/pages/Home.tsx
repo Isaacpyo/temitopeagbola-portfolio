@@ -109,7 +109,7 @@ const Home = () => {
           <img 
             src="/publiclogo.png" 
             alt="" 
-            className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-30 mix-blend-multiply dark:opacity-70 dark:mix-blend-overlay pointer-events-none"
+            className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-center z-0 opacity-30 mix-blend-multiply dark:opacity-70 dark:mix-blend-overlay pointer-events-none"
           />
 
           <div className="absolute inset-0 bg-white/30 dark:bg-slate-950/30 backdrop-blur-[1px] z-0"></div>
@@ -119,7 +119,7 @@ const Home = () => {
             <motion.div variants={heroContainerVariants} initial="hidden" animate="visible" className="md:w-3/4">
               
               {/* 👇 Badge with mt-8 (Task 6) */}
-              <motion.div variants={heroItemVariants} className="flex items-center gap-2 mb-4 mt-0">
+              <motion.div variants={heroItemVariants} className="flex items-center gap-2 mb-8 mt-0">
                 <span className="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-primary text-sm font-semibold tracking-wide uppercase border border-blue-200 dark:border-blue-800">
                   Software Engineer
                 </span>
@@ -139,28 +139,28 @@ const Home = () => {
                 I'm Temitope. I build intelligent, end-to-end applications that genuinely improves the user experience.
               </motion.p>
 
-              {/* 👇 Buttons: Side by side (row), Rounded, Removed Contact Me (Task 3, 4) */}
-              <motion.div variants={heroItemVariants} className="flex flex-row gap-4 mb-8 items-center">
-                <Link to="/projects">
-                  <Button className="h-14 px-8 text-lg w-auto justify-center rounded-full">
-                    View Projects <ArrowRight className="w-5 h-5 ml-2" />
+              {/* 👇 UPDATED BUTTONS: Reduced mobile text size and padding to fix "out of place" issue */}
+              <motion.div variants={heroItemVariants} className="flex flex-row gap-3 mb-8 items-center w-full max-w-md md:w-auto">
+                <Link to="/projects" className="flex-1 md:flex-none">
+                  <Button className="w-full md:w-auto h-12 px-4 text-sm md:h-14 md:px-8 md:text-lg justify-center rounded-full whitespace-nowrap">
+                    View Projects <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
                 
                 <a 
                   href="/resume.docx" 
-                  download="Temitope_Agbola_SD_D_2025.docx" 
+                  download="Têmitope_Agbola_SD_D_2025.docx" 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  className="flex-1 md:flex-none"
                 >
-                  <Button variant="outline" className="h-14 px-8 text-lg w-auto justify-center rounded-full">
-                    Download CV <Download className="w-5 h-5 ml-2" />
+                  <Button variant="outline" className="w-full md:w-auto h-12 px-4 text-sm md:h-14 md:px-8 md:text-lg justify-center rounded-full whitespace-nowrap">
+                    Download CV <Download className="w-4 h-4 ml-2" />
                   </Button>
                 </a>
               </motion.div>
 
-              {/* 👇 Socials: Reduced margin above ensures visibility (Task 5) */}
-              <motion.div variants={heroItemVariants} className="flex gap-8 text-slate-500 dark:text-slate-400 justify-start mb-12 md:mb-0">
+              <motion.div variants={heroItemVariants} className="flex gap-8 text-slate-500 dark:text-slate-400 justify-start mb-8 md:mb-0">
                 <a href="https://github.com/isaacpyo/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors transform hover:scale-110 duration-200">
                   <Github className="w-7 h-7" />
                 </a>
@@ -183,7 +183,7 @@ const Home = () => {
         </div> */}
 
         {/* WHAT I DO SECTION */}
-        <section className="py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <section className="py-24 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               variants={staggerContainer}
@@ -198,7 +198,7 @@ const Home = () => {
                   variants={fadeInUp as never}
                   whileHover={{ y: -10 }} 
                   onClick={() => setActiveService(service)}
-                  className="group relative bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 cursor-pointer"
+                  className="group relative bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-2xl hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 cursor-pointer"
                 >
                   <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity text-primary">
                     <MousePointerClick className="w-5 h-5" />
@@ -223,7 +223,7 @@ const Home = () => {
         </section>
 
         {/* FEATURED PROJECTS */}
-        <section className="py-24 bg-slate-50 dark:bg-slate-800/30">
+        <section className="py-24 bg-slate-50 dark:bg-slate-900/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-end mb-12">
               <div className="relative inline-block">
@@ -285,7 +285,7 @@ const Home = () => {
         </section>
 
         {/* LATEST WRITING */}
-        <section className="py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <section className="py-24 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-12">
                 <div className="relative inline-block">
@@ -303,12 +303,12 @@ const Home = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {latestPost.map((post) => (
-                  <Link key={post.id} to={`/blog/${post.slug}`} className="block group text-left p-8 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors h-full flex flex-col">
+                  <Link key={post.id} to={`/blog/${post.slug}`} className="block group text-left p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors h-full flex flex-col">
                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                        <span className="text-sm font-mono text-primary">{post.date}</span>
                        <div className="flex flex-wrap gap-2">
                           {post.tags.map(tag => (
-                            <span key={tag} className="text-xs px-2 py-1 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+                            <span key={tag} className="text-xs px-2 py-1 bg-white dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400">
                               {tag}
                             </span>
                           ))}
@@ -325,6 +325,15 @@ const Home = () => {
                      </span>
                   </Link>
                 ))}
+              </div>
+
+              {/* 👇 NEW BUTTON: Read More Writings */}
+              <div className="mt-12 flex justify-center">
+                <Link to="/blog">
+                  <Button className="rounded-full px-8 py-3 text-lg h-auto shadow-md">
+                      Read More Writings <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
               </div>
           </div>
         </section>
