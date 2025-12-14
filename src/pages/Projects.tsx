@@ -5,6 +5,7 @@ import type { Project } from '../types';
 import PageTransition from '../components/layout/PageTransition';
 import ProjectModal from '../components/ui/ProjectModal';
 
+
 const Projects = () => {
   const [filter, setFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);

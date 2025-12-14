@@ -15,6 +15,7 @@ import {
   Wrench 
 } from 'lucide-react';
 
+
 // UPDATED SKILLS based on your new list
 const skills = [
   

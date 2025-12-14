@@ -108,14 +108,14 @@ const ShareModal = ({ isOpen, onClose, title, url }: ShareModalProps) => {
                     <LinkIcon className="w-4 h-4" />
                   </div>
                   <input 
-                    type="text" 
-                    readOnly 
-                    value={url} 
-                    className="flex-1 bg-transparent text-sm text-slate-600 dark:text-slate-300 outline-none truncate"
-                  />
+              type="text" 
+              readOnly 
+              value={url} 
+              className="bg-transparent border-none focus:ring-0 text-sm text-slate-600 dark:text-slate-300 w-full min-w-0"
+            />
                   <button
                     onClick={handleCopy}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                    className={`flex-shrink-0 px-3 py-1.5 bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-xs font-bold rounded shadow-sm hover:bg-slate-50 dark:hover:bg-slate-600 transition-colors ${
                       copied 
                         ? 'bg-green-500 text-white shadow-lg shadow-green-500/30' 
                         : 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm hover:shadow-md'

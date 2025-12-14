@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Github, Linkedin, Mail,  Globe, MousePointerClick, Download, ShieldCheck, BrainCircuit } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, Globe, MousePointerClick, Download, ShieldCheck, BrainCircuit } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from '../components/ui/Button';
@@ -10,7 +10,6 @@ import { projects, blogPosts } from '../data/mockData';
 const Home = () => {
   const [activeService, setActiveService] = useState<ServiceData | null>(null);
 
-  // Define Services Data
   const services: ServiceData[] = [
     {
       id: 'app-dev',
@@ -56,11 +55,9 @@ const Home = () => {
     }
   ];
 
-  // Show up to 4 projects
   const featuredProjects = projects.slice(0, 4);
   const latestPost = blogPosts.slice(0, 2);
 
-  // Animation Variants
   const heroContainerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
@@ -81,14 +78,30 @@ const Home = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
+  // 👇 New variant for underline animations (Task 12)
+  const underlineVariants = {
+    hidden: { width: 0, opacity: 1 },
+    visible: { 
+        width: '100%', 
+        opacity: 0.2, // Fade to low opacity
+        transition: { 
+            width: { duration: 1.0, ease: "easeOut" },
+            opacity: { duration: 1.5, delay: 0.5 }
+        } 
+    }
+  };
+
   return (
     <PageTransition>
-      <div className="overflow-hidden">
-        
+      <div className="overflow-hidden relative">
+        {/* 👇 Grid Overlay (Task 1) */}
+        {/* <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        </div> */}
+
         {/* HERO SECTION */}
         <div className="min-h-screen flex items-center relative">
           
-          {/* Animated Background Blobs */}
           <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob dark:bg-purple-900 dark:mix-blend-lighten"></div>
           <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 dark:bg-yellow-900 dark:mix-blend-lighten"></div>
           <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000 dark:bg-pink-900 dark:mix-blend-lighten"></div>
@@ -101,18 +114,19 @@ const Home = () => {
 
           <div className="absolute inset-0 bg-white/30 dark:bg-slate-950/30 backdrop-blur-[1px] z-0"></div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-20">
+          {/* 👇 Adjust pt for mobile transparent nav */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-20 md:pt-32">
             <motion.div variants={heroContainerVariants} initial="hidden" animate="visible" className="md:w-3/4">
               
-              {/* UPDATED BADGE */}
-              <motion.div variants={heroItemVariants} className="flex items-center gap-2 mb-6">
+              {/* 👇 Badge with mt-8 (Task 6) */}
+              <motion.div variants={heroItemVariants} className="flex items-center gap-2 mb-4 mt-0">
                 <span className="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-primary text-sm font-semibold tracking-wide uppercase border border-blue-200 dark:border-blue-800">
                   Software Engineer
                 </span>
               </motion.div>
               
-              {/* UPDATED HEADLINE */}
-              <motion.h1 variants={heroItemVariants} className="text-5xl md:text-8xl font-bold text-slate-900 dark:text-white mb-8 leading-tight tracking-tight">
+              {/* 👇 Headline: text-4xl on mobile (Task 5), mb reduced */}
+              <motion.h1 variants={heroItemVariants} className="text-4xl md:text-8xl font-bold text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
                 Building software <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">
                   that learns
@@ -120,50 +134,53 @@ const Home = () => {
                 and adapts.
               </motion.h1>
               
-              {/* UPDATED SUBHEAD */}
-              <motion.p variants={heroItemVariants} className="text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl leading-relaxed">
+              {/* 👇 Subhead: mb reduced (Task 5) */}
+              <motion.p variants={heroItemVariants} className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl leading-relaxed">
                 I'm Temitope. I build intelligent, end-to-end applications that genuinely improves the user experience.
               </motion.p>
 
-              <motion.div variants={heroItemVariants} className="flex flex-col sm:flex-row gap-4 mb-16 items-center md:items-start">
+              {/* 👇 Buttons: Side by side (row), Rounded, Removed Contact Me (Task 3, 4) */}
+              <motion.div variants={heroItemVariants} className="flex flex-row gap-4 mb-8 items-center">
                 <Link to="/projects">
-                  <Button className="h-14 px-8 text-lg w-auto justify-center">
-                    View Projects <ArrowRight className="w-5 h-5" />
+                  <Button className="h-14 px-8 text-lg w-auto justify-center rounded-full">
+                    View Projects <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
                 
                 <a 
-    href="/resume.docx" 
-    download="Têmitope_Agbola_SD_D_2025.docx" // This name appears for the user when downloading
-    target="_blank" 
-    rel="noopener noreferrer"
-  >
-      <Button variant="outline" className="h-14 px-8 text-lg w-auto justify-center">
-      Download CV <Download className="w-5 h-5 ml-2" />
-    </Button>
-  </a>
-
-                <Link to="/contact">
-                  <Button variant="outline" className="h-14 px-8 text-lg w-auto justify-center">
-                    Contact Me
+                  href="/resume.docx" 
+                  download="Temitope_Agbola_SD_D_2025.docx" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline" className="h-14 px-8 text-lg w-auto justify-center rounded-full">
+                    Download CV <Download className="w-5 h-5 ml-2" />
                   </Button>
-                </Link>
+                </a>
               </motion.div>
 
-              <motion.div variants={heroItemVariants} className="flex gap-8 text-slate-500 dark:text-slate-400 justify-center md:justify-start mb-12 md:mb-0">
-  <a href="https://github.com/isaacpyo/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors transform hover:scale-110 duration-200">
-    <Github className="w-7 h-7" />
-  </a>
-  <a href="https://www.linkedin.com/in/temitopeagbola/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors transform hover:scale-110 duration-200">
-    <Linkedin className="w-7 h-7" />
-  </a>
-  <a href="mailto:info@temitopeagbola.com" className="hover:text-primary transition-colors transform hover:scale-110 duration-200">
-    <Mail className="w-7 h-7" />
-  </a>
-</motion.div>
+              {/* 👇 Socials: Reduced margin above ensures visibility (Task 5) */}
+              <motion.div variants={heroItemVariants} className="flex gap-8 text-slate-500 dark:text-slate-400 justify-start mb-12 md:mb-0">
+                <a href="https://github.com/isaacpyo/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors transform hover:scale-110 duration-200">
+                  <Github className="w-7 h-7" />
+                </a>
+                <a href="https://www.linkedin.com/in/temitopeagbola/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors transform hover:scale-110 duration-200">
+                  <Linkedin className="w-7 h-7" />
+                </a>
+                <a href="mailto:info@temitopeagbola.com" className="hover:text-primary transition-colors transform hover:scale-110 duration-200">
+                  <Mail className="w-7 h-7" />
+                </a>
+              </motion.div>
             </motion.div>
           </div>
         </div>
+
+        {/* 👇 About Me Link (Task 9) */}
+        {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end pb-8">
+             <Link to="/about" className="group inline-flex items-center text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors">
+                More About Me <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+             </Link>
+        </div> */}
 
         {/* WHAT I DO SECTION */}
         <section className="py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
@@ -178,7 +195,7 @@ const Home = () => {
               {services.map((service) => (
                 <motion.div 
                   key={service.id}
-                  variants={fadeInUp  as never}
+                  variants={fadeInUp as never}
                   whileHover={{ y: -10 }} 
                   onClick={() => setActiveService(service)}
                   className="group relative bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 cursor-pointer"
@@ -209,39 +226,59 @@ const Home = () => {
         <section className="py-24 bg-slate-50 dark:bg-slate-800/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-end mb-12">
-              <div>
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Featured Projects</h2>
-                <p className="text-slate-600 dark:text-slate-400">Recent projects and experiments.</p>
+              <div className="relative inline-block">
+                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 relative z-10">Featured Projects</h2>
+                {/* 👇 Underline Animation (Task 12) */}
+                <motion.div 
+                    variants={underlineVariants as never}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="absolute bottom-1 left-0 h-2 bg-primary/20 -z-0"
+                />
+                <p className="text-slate-600 dark:text-slate-400 mt-2">Recent projects and experiments.</p>
               </div>
-              <Link to="/projects" className="hidden md:flex items-center gap-2 text-primary hover:text-blue-600 font-medium transition-colors">
+              {/* <Link to="/projects" className="hidden md:flex items-center gap-2 text-primary hover:text-blue-600 font-medium transition-colors">
                 View all projects <ArrowRight className="w-4 h-4" />
-              </Link>
+              </Link> */}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {featuredProjects.map((project) => (
-                <Link to="/projects" key={project.id} className="group cursor-pointer">
-                  <div className="relative overflow-hidden rounded-2xl h-64 mb-6 border border-slate-200 dark:border-slate-700">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400 line-clamp-2">
-                    {project.description}
-                  </p>
-                </Link>
+                /* 👇 Wrapped in Card (Task 10) */
+                <motion.div 
+                    key={project.id}
+                    whileHover={{ y: -5 }}
+                    className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all"
+                >
+                    <Link to="/projects" className="block h-full cursor-pointer">
+                        <div className="relative overflow-hidden h-64 border-b border-slate-100 dark:border-slate-800">
+                            <img 
+                            src={project.image} 
+                            alt={project.title} 
+                            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                        </div>
+                        <div className="p-8">
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                                {project.title}
+                            </h3>
+                            <p className="text-slate-600 dark:text-slate-400 line-clamp-2">
+                                {project.description}
+                            </p>
+                        </div>
+                    </Link>
+                </motion.div>
               ))}
             </div>
             
-            <div className="mt-8 md:hidden">
-              <Link to="/projects" className="flex items-center gap-2 text-primary font-medium">
-                View all projects <ArrowRight className="w-4 h-4" />
+            {/* 👇 View All Projects Button (Task 8) */}
+            <div className="mt-12 flex justify-center">
+              <Link to="/projects">
+                <Button className="rounded-full px-8 py-3 text-lg h-auto shadow-md">
+                    View All Projects <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
               </Link>
             </div>
           </div>
@@ -250,66 +287,78 @@ const Home = () => {
         {/* LATEST WRITING */}
         <section className="py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-             <div className="text-center mb-12">
-               <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Latest Writing</h2>
+              <div className="text-center mb-12">
+                <div className="relative inline-block">
+                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white relative z-10">Latest Writing</h2>
+                    {/* 👇 Underline Animation (Task 12) */}
+                    <motion.div 
+                        variants={underlineVariants as never}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="absolute bottom-0 left-0 h-2 bg-primary/20 -z-0"
+                    />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {latestPost.map((post) => (
+                  <Link key={post.id} to={`/blog/${post.slug}`} className="block group text-left p-8 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors h-full flex flex-col">
+                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                       <span className="text-sm font-mono text-primary">{post.date}</span>
+                       <div className="flex flex-wrap gap-2">
+                          {post.tags.map(tag => (
+                            <span key={tag} className="text-xs px-2 py-1 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+                              {tag}
+                            </span>
+                          ))}
+                       </div>
+                     </div>
+                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-primary transition-colors">
+                       {post.title}
+                     </h3>
+                     <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-6 flex-grow">
+                       {post.excerpt}
+                     </p>
+                     <span className="inline-flex items-center text-primary font-medium group-hover:underline mt-auto">
+                       Read Article <ArrowRight className="w-4 h-4 ml-2" />
+                     </span>
+                  </Link>
+                ))}
+              </div>
+          </div>
+        </section>
+
+        {/* FINAL CTA */}
+        <section className="py-32 bg-white dark:bg-slate-950 text-slate-900 dark:text-white relative overflow-hidden transition-colors duration-300">
+           
+           <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+             <div className="relative inline-block mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold relative z-10">Have a project in mind?</h2>
+                 {/* 👇 Underline Animation (Task 12) */}
+                 <motion.div 
+                        variants={underlineVariants as never}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="absolute bottom-1 left-0 h-3 bg-primary/20 -z-0"
+                    />
              </div>
              
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-               {latestPost.map((post) => (
-                 // 👇 Ensuring we use the Slug for the URL
-                 <Link key={post.id} to={`/blog/${post.slug}`} className="block group text-left p-8 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors h-full flex flex-col">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                      <span className="text-sm font-mono text-primary">{post.date}</span>
-                      <div className="flex flex-wrap gap-2">
-                         {post.tags.map(tag => (
-                           <span key={tag} className="text-xs px-2 py-1 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400">
-                             {tag}
-                           </span>
-                         ))}
-                      </div>
-                    </div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-primary transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-6 flex-grow">
-                      {post.excerpt}
-                    </p>
-                    <span className="inline-flex items-center text-primary font-medium group-hover:underline mt-auto">
-                      Read Article <ArrowRight className="w-4 h-4 ml-2" />
-                    </span>
-                 </Link>
-               ))}
+             <p className="text-xl text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto">
+               I'm currently available for freelance projects and open to new full-time opportunities.
+             </p>
+             
+             <div className="flex justify-center">
+               <Link to="/contact">
+                 <Button className="h-20 px-12 text-2xl font-bold bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-blue-600 dark:hover:bg-slate-100 border-none shadow-2xl hover:scale-105 transition-transform rounded-full">
+                   Let's Talk
+                 </Button>
+               </Link>
              </div>
-          </div>
+           </div>
         </section>
 
-        {/* FINAL CTA - ADAPTIVE BACKGROUND & BUTTON */}
-        <section className="py-32 bg-white dark:bg-slate-950 text-slate-900 dark:text-white relative overflow-hidden transition-colors duration-300">
-          
-          {/* Grid Background */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
-          
-          {/* Radial Mask - Adaptive */}
-          <div className="absolute inset-0 bg-white dark:bg-slate-950 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,transparent_70%,#000_100%)] pointer-events-none"></div>
-
-          <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Have a project in mind?</h2>
-            <p className="text-xl text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto">
-              I'm currently available for freelance projects and open to new full-time opportunities.
-            </p>
-            
-            <div className="flex justify-center">
-              <Link to="/contact">
-                {/* Adaptive Button: Dark in Light mode, White in Dark mode */}
-                <Button className="h-20 px-12 text-2xl font-bold bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-blue-600 dark:hover:bg-slate-100 border-none shadow-2xl hover:scale-105 transition-transform">
-                  Let's Talk
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* SERVICE DRAWER PORTAL */}
         <ServiceDrawer 
           service={activeService} 
           isOpen={!!activeService} 

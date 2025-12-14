@@ -6,8 +6,9 @@ import Button from '../ui/Button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // 👇 State for the Work dropdown
   const [isWorkOpen, setIsWorkOpen] = useState(false);
+  // 👇 State to track scroll for transparent background
+  const [isScrolled, setIsScrolled] = useState(false);
   
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -41,6 +42,15 @@ const Navbar = () => {
     }
   }, [isOpen]);
 
+  // 👇 Scroll listener for Navbar background
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const menuVariants = {
     closed: { x: "100%", transition: { type: "spring", stiffness: 300, damping: 30 } },
     open: { x: "0%", transition: { type: "spring", stiffness: 300, damping: 30 } }
@@ -57,7 +67,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full top-0 z-50 bg-light/80 dark:bg-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+      {/* 👇 Updated nav classes for transparent-to-solid scroll effect */}
+      <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-light/80 dark:bg-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800' 
+          : 'bg-transparent border-transparent'
+      }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             
@@ -73,7 +88,6 @@ const Navbar = () => {
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center space-x-8">
               
-              {/* About Link */}
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
@@ -90,7 +104,6 @@ const Navbar = () => {
                 )}
               </NavLink>
 
-              {/* 👇 "Work" Dropdown Menu */}
               <div 
                 className="relative group"
                 onMouseEnter={() => setIsWorkOpen(true)}
@@ -121,7 +134,6 @@ const Navbar = () => {
                       >
                         Projects
                       </NavLink>
-                      {/* You might need to create this route/page later */}
                       <NavLink 
                         to="/case-studies"
                         className={({ isActive }) => `block px-4 py-3 text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors ${isActive ? 'text-primary font-medium' : 'text-slate-600 dark:text-slate-300'}`}
@@ -133,7 +145,6 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
 
-              {/* Blog Link */}
               <NavLink
                 to="/blog"
                 className={({ isActive }) =>
@@ -151,7 +162,8 @@ const Navbar = () => {
               </NavLink>
               
               <Link to="/contact">
-                <Button className="px-5 py-2 text-sm h-10 shadow-lg shadow-blue-500/20">
+                {/* 👇 Removed glowing effects, added rounded-full */}
+                <Button className="px-5 py-2 text-sm h-10 shadow-md rounded-full">
                   Let's Talk
                 </Button>
               </Link>
@@ -218,6 +230,7 @@ const Navbar = () => {
                   <motion.div custom={0} variants={linkVariants}>
                     <NavLink
                       to="/about"
+                      onClick={() => setIsOpen(false)}
                       className={({ isActive }) => `block text-3xl font-bold py-2 ${isActive ? 'text-primary' : 'text-slate-900 dark:text-white'}`}
                     >
                       About
@@ -225,7 +238,7 @@ const Navbar = () => {
                   </motion.div>
                   <div className="h-[1px] w-full bg-slate-200 dark:bg-slate-800" />
 
-                  {/* 👇 Mobile Work Dropdown */}
+                  {/* Mobile Work Dropdown */}
                   <motion.div custom={1} variants={linkVariants}>
                     <button 
                       onClick={() => setIsWorkOpen(!isWorkOpen)}
@@ -242,8 +255,8 @@ const Navbar = () => {
                           exit={{ height: 0, opacity: 0 }}
                           className="overflow-hidden pl-4 space-y-4 mt-2 border-l-2 border-slate-200 dark:border-slate-800"
                         >
-                          <NavLink to="/projects" className="block text-xl font-medium text-slate-600 dark:text-slate-300 py-2">Projects</NavLink>
-                          <NavLink to="/case-studies" className="block text-xl font-medium text-slate-600 dark:text-slate-300 py-2">Case Studies</NavLink>
+                          <NavLink to="/projects" onClick={() => setIsOpen(false)} className="block text-xl font-medium text-slate-600 dark:text-slate-300 py-2">Projects</NavLink>
+                          <NavLink to="/case-studies" onClick={() => setIsOpen(false)} className="block text-xl font-medium text-slate-600 dark:text-slate-300 py-2">Case Studies</NavLink>
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -254,6 +267,7 @@ const Navbar = () => {
                   <motion.div custom={2} variants={linkVariants}>
                     <NavLink
                       to="/blog"
+                      onClick={() => setIsOpen(false)}
                       className={({ isActive }) => `block text-3xl font-bold py-2 ${isActive ? 'text-primary' : 'text-slate-900 dark:text-white'}`}
                     >
                       Blog
@@ -265,7 +279,7 @@ const Navbar = () => {
 
                 <div className="mt-auto mb-10 pt-8">
                    <Link to="/contact" onClick={() => setIsOpen(false)}>
-                      <Button className="w-full h-14 text-lg shadow-xl">
+                      <Button className="w-full h-14 text-lg shadow-xl rounded-full">
                         Let's Talk <MessageSquare className="w-5 h-5 ml-2" />
                       </Button>
                    </Link>

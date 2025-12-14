@@ -15,6 +15,7 @@ import PageTransition from '../components/layout/PageTransition';
 import Button from '../components/ui/Button';
 import { caseStudies } from '../data/mockData';
 
+
 // Helper to map ID to Icon
 const getIcon = (id: string) => {
   switch(id) {

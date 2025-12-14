@@ -6,6 +6,7 @@ import PageTransition from '../components/layout/PageTransition';
 import { blogPosts } from '../data/mockData';
 import Button from '../components/ui/Button';
 
+
 const POSTS_PER_PAGE = 4;
 
 const Blog = () => {
