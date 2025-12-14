@@ -1,12 +1,13 @@
 export interface Project {
   id: number;
   title: string;
-  category: 'Web' | 'Mobile' | 'Backend' | 'Open Source' | 'DevOps' | 'AI';
+  category: 'Web' | 'Mobile' | 'Backend' | 'Open Source' | 'DevOps' | 'AI' | 'Web3' ;
   description: string;
   image: string;
   tech: string[];
   githubUrl: string;
-  liveUrl: string;
+  
+  link: string;
   features?: string[];
   challenges?: string;
 }

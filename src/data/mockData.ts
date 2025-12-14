@@ -1,7 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { BlogPost, Experience, Education } from '../types';
+import type { Project, BlogPost, Experience, Education } from '../types';
 
-export const projects = [
+export const projects: Project[] = [
   {
     id: 1,
     title: "FlowSync",
@@ -219,7 +218,7 @@ export const projects = [
     challenges: "Designing a low-latency detection engine capable of analyzing mempool transactions and triggering on-chain circuit breakers before malicious transactions are mined."
   }
 ];
-  
+
 
 // ... Keep existing experiences, education, and blogPosts
 export const experiences: Experience[] = [
