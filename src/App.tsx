@@ -11,7 +11,7 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Sitemap from './pages/Sitemap';
 import Legal from './pages/Legal';
-import CaseStudies from './pages/CaseStudies'; // 👇 Import CaseStudies
+import CaseStudies from './pages/CaseStudies'; 
 import CaseStudyDetail from './pages/CaseStudyDetail';
 import Preloader from './components/ui/Preloader';
 import NotFound from './pages/NotFound';
@@ -38,9 +38,12 @@ function App() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
             
-            {/* 👇 New Case Studies Route */}
+            <Route path="/projects" element={<Projects />} />
+            {/* 👇 ADDED: Route for individual project details */}
+            {/* Note: This uses CaseStudyDetail. Ensure that component can look up data from your 'projects' array too! */}
+            <Route path="/projects/:id" element={<CaseStudyDetail />} />
+            
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
             

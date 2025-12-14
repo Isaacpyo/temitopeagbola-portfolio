@@ -6,9 +6,12 @@ import Button from '../components/ui/Button';
 import PageTransition from '../components/layout/PageTransition';
 import ServiceDrawer, { type ServiceData } from '../components/ui/ServiceDrawer';
 import { projects, blogPosts } from '../data/mockData';
+import ProjectModal from '../components/ui/ProjectModal';
 
 const Home = () => {
   const [activeService, setActiveService] = useState<ServiceData | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [selectedProject, setSelectedProject] = useState<any>(null);
 
   const services: ServiceData[] = [
     {
@@ -249,9 +252,10 @@ const Home = () => {
                 <motion.div 
                     key={project.id}
                     whileHover={{ y: -5 }}
+                    onClick={() => setSelectedProject(project)}
                     className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all"
                 >
-                    <Link to="/projects" className="block h-full cursor-pointer">
+                    <div className="block h-full cursor-pointer">
                         <div className="relative overflow-hidden h-64 border-b border-slate-100 dark:border-slate-800">
                             <img 
                             src={project.image} 
@@ -268,7 +272,7 @@ const Home = () => {
                                 {project.description}
                             </p>
                         </div>
-                    </Link>
+                    </div>
                 </motion.div>
               ))}
             </div>
@@ -372,6 +376,12 @@ const Home = () => {
           service={activeService} 
           isOpen={!!activeService} 
           onClose={() => setActiveService(null)} 
+        />
+        {/* 👇 STEP 4: Render your REUSED popup here! */}
+        <ProjectModal 
+          project={selectedProject} 
+          isOpen={!!selectedProject} 
+          onClose={() => setSelectedProject(null)} 
         />
 
       </div>

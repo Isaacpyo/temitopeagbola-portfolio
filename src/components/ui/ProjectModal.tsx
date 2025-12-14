@@ -89,7 +89,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
               {/* Description */}
               <div>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Overview</h3>
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed whitespace-pre-line">
                   {project.description}
                 </p>
               </div>

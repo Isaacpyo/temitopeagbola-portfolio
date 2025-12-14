@@ -1,15 +1,17 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { Project, BlogPost, Experience, Education } from '../types';
 
-export const projects: Project[] = [
+export const projects = [
   {
     id: 1,
     title: "FlowSync",
-    category: "Backend", // 👇 CHANGED from Web to Backend
-    description: "Real-Time Collaborative Task Management Platform. Tagline: 'Where teams flow together'.",
+    category: "Backend",
+    description: "Real-Time Collaborative Task Management Platform.\n'Where teams flow together'.",
     image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80",
     tech: ["React", "Socket.io", "Node.js", "Redis", "PostgreSQL"],
-    githubUrl: "#",
-    liveUrl: "#",
+    // 👇 UPDATED: GitHub URL
+    githubUrl: "https://github.com/Isaacpyo/FlowSync",
+    link: "https://flowsync.temitopeagbola.com",
     features: [
       "Real-time cursors and live updates",
       "Kanban and List views with drag-and-drop",
@@ -22,11 +24,12 @@ export const projects: Project[] = [
     id: 2,
     title: "MarketMind",
     category: "AI",
-    description: "E-Commerce Recommendation Engine & Platform. Tagline: 'Shopping that knows you'.",
+    description: "E-Commerce Recommendation Engine & Platform.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80",
     tech: ["Python", "FastAPI", "TensorFlow", "Next.js", "MongoDB"],
-    githubUrl: "#",
-    liveUrl: "#",
+    // 👇 UPDATED: GitHub URL
+    githubUrl: "https://github.com/Isaacpyo/MarketMind",
+    link: "https://marketmind.temitopeagbola.com",
     features: [
       "Collaborative filtering recommendation algorithm",
       "Real-time inventory tracking",
@@ -39,11 +42,12 @@ export const projects: Project[] = [
     id: 3,
     title: "PulseOps",
     category: "DevOps",
-    description: "DevOps Monitoring & Incident Management System. Tagline: 'Feel the heartbeat of your infrastructure'.",
+    description: "DevOps Monitoring & Incident Management System.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80",
     tech: ["Go", "Prometheus", "Grafana", "Docker", "Slack API"],
-    githubUrl: "#",
-    liveUrl: "#",
+    // 👇 UPDATED: GitHub URL
+    githubUrl: "https://github.com/Isaacpyo/PulseOps",
+    link: "https://pulseops.temitopeagbola.com",
     features: [
       "Real-time metric visualization",
       "Automated alert routing to Slack/PagerDuty",
@@ -56,11 +60,12 @@ export const projects: Project[] = [
     id: 4,
     title: "CivicCircle",
     category: "AI",
-    description: "AI-Powered Content Moderation & Social Platform. Tagline: 'Community, protected by intelligence'.",
+    description: "AI-Powered Content Moderation & Social Platform.",
     image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80",
     tech: ["React Native", "OpenAI API", "Node.js", "Firebase"],
-    githubUrl: "#",
-    liveUrl: "#",
+    // 👇 UPDATED: GitHub URL
+    githubUrl: "https://github.com/Isaacpyo/CivicCircle",
+    link: "https://civiccircle.temitopeagbola.com",
     features: [
       "Automated toxicity detection",
       "Community governance voting tools",
@@ -73,11 +78,12 @@ export const projects: Project[] = [
     id: 5,
     title: "DevDash",
     category: "Web",
-    description: "Personal Developer Portfolio & Analytics. Tagline: 'Your code journey, visualized'.",
+    description: "Personal Developer Portfolio & Analytics.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",
     tech: ["Next.js", "GitHub API", "Tailwind CSS", "Recharts"],
-    githubUrl: "#",
-    liveUrl: "#",
+    // 👇 UPDATED: GitHub URL
+    githubUrl: "https://github.com/Isaacpyo/DevDash",
+    link: "https://devdash.temitopeagbola.com",
     features: [
       "GitHub contribution heatmaps",
       "Automatic blog fetching from dev.to",
@@ -90,11 +96,12 @@ export const projects: Project[] = [
     id: 6,
     title: "BudgetWise",
     category: "Mobile",
-    description: "Smart Expense Tracker & Financial Insights. Tagline: 'Money made simple'.",
+    description: "Smart Expense Tracker & Financial Insights.",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80",
     tech: ["React Native", "Plaid API", "Firebase Auth", "Victory Charts"],
-    githubUrl: "#",
-    liveUrl: "#",
+    // 👇 UPDATED: GitHub URL
+    githubUrl: "https://github.com/Isaacpyo/BudgetWise",
+    link: "https://budgetwise.temitopeagbola.com",
     features: [
       "Bank account synchronization via Plaid",
       "Automatic transaction categorization",
@@ -107,11 +114,12 @@ export const projects: Project[] = [
     id: 7,
     title: "CodeSnip",
     category: "Web",
-    description: "Developer Code Snippet Manager. Tagline: 'Your code library, organized'.",
+    description: "Developer Code Snippet Manager.",
     image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80",
     tech: ["React", "Supabase", "Monaco Editor", "Chakra UI"],
-    githubUrl: "#",
-    liveUrl: "#",
+    // 👇 UPDATED: GitHub URL
+    githubUrl: "https://github.com/Isaacpyo/CodeSnip",
+    link: "https://codesnip.temitopeagbola.com",
     features: [
       "Syntax highlighting for 50+ languages",
       "Shareable public links (Gist-like)",
@@ -123,12 +131,13 @@ export const projects: Project[] = [
   {
     id: 8,
     title: "MeetQueue",
-    category: "Backend", // 👇 CHANGED from Web to Backend
-    description: "Meeting Room Booking & Management System. Tagline: 'Book it, use it, track it'.",
+    category: "Backend",
+    description: "Meeting Room Booking & Management System.",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80",
     tech: ["Next.js", "PostgreSQL", "Prisma", "Google Calendar API"],
-    githubUrl: "#",
-    liveUrl: "#",
+    // 👇 UPDATED: GitHub URL
+    githubUrl: "https://github.com/Isaacpyo/MeetQueue",
+    link: "https://meetqueue.temitopeagbola.com",
     features: [
       "Conflict-free booking logic",
       "Integration with Google/Outlook calendars",
@@ -141,11 +150,12 @@ export const projects: Project[] = [
     id: 9,
     title: "FitTrack",
     category: "Mobile",
-    description: "Workout & Health Progress Tracker. Tagline: 'Track progress, build habits'.",
+    description: "Workout & Health Progress Tracker.",
     image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80",
     tech: ["React Native", "HealthKit / Google Fit", "Redux", "Node.js"],
-    githubUrl: "#",
-    liveUrl: "#",
+    // 👇 UPDATED: GitHub URL
+    githubUrl: "https://github.com/Isaacpyo/FitTrack",
+    link: "https://fittrack.temitopeagbola.com",
     features: [
       "Step count and calorie integration",
       "Custom workout routine builder",
@@ -158,11 +168,12 @@ export const projects: Project[] = [
     id: 10,
     title: "LinkVault",
     category: "Web",
-    description: "Bookmark Manager with Smart Organization. Tagline: 'Save smarter, find faster'.",
+    description: "Bookmark Manager with Smart Organization.",
     image: "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&q=80",
     tech: ["React", "Chrome Extension API", "Node.js", "Elasticsearch"],
-    githubUrl: "#",
-    liveUrl: "#",
+    // 👇 UPDATED: GitHub URL
+    githubUrl: "https://github.com/Isaacpyo/LinkVault",
+    link: "https://linkvault.temitopeagbola.com",
     features: [
       "Full-text search of bookmarked content",
       "Automatic tagging using AI",
@@ -175,11 +186,12 @@ export const projects: Project[] = [
     id: 11,
     title: "TrenyConnect",
     category: "Mobile",
-    description: "Realtime logistics app. Tagline: 'Logistics re-imagined'.",
+    description: "Realtime logistics app.",
     image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&q=80",
     tech: ["React Native", "Google Maps API", "Socket.io", "Stripe"],
-    githubUrl: "#",
-    liveUrl: "#",
+    // 👇 UPDATED: GitHub URL
+    githubUrl: "https://github.com/Isaacpyo/TrenyConnect",
+    link: "https://trenyconnect.temitopeagbola.com",
     features: [
       "Real-time driver tracking map",
       "QR code package scanning",
@@ -187,8 +199,27 @@ export const projects: Project[] = [
       "Route optimization for drivers"
     ],
     challenges: "Managing state for intermittent network connections while drivers are on the move (Offline-first architecture)."
+  },
+  {
+    id: 12,
+    title: "ChainGuard",
+    category: "Web3", // New category for this project
+    description: "Real-time smart contract security & monitoring.\n'Real-time smart contract security.'",
+    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80",
+    tech: ["Solidity", "Node.js", "Kafka", "PostgreSQL", "Next.js"],
+    // 👇 Standardized Links
+    githubUrl: "https://github.com/Isaacpyo/ChainGuard",
+    link: "https://chainguard.temitopeagbola.com",
+    features: [
+      "Mempool monitoring for pre-execution threat detection",
+      "Automated circuit breakers (Pause/Rate Limits)",
+      "Role-based access control & Timelocks",
+      "Real-time anomaly detection dashboard"
+    ],
+    challenges: "Designing a low-latency detection engine capable of analyzing mempool transactions and triggering on-chain circuit breakers before malicious transactions are mined."
   }
 ];
+  
 
 // ... Keep existing experiences, education, and blogPosts
 export const experiences: Experience[] = [
