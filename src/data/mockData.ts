@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { Project, BlogPost, Experience, Education } from '../types';
+import type { BlogPost, Experience, Education } from '../types';
 
 export const projects = [
   {
