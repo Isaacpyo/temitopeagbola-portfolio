@@ -16,6 +16,7 @@ import {
 import PageTransition from '../components/layout/PageTransition';
 import Button from '../components/ui/Button';
 
+const web3FormsAccessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
 const Contact = () => {
   // Tab State
@@ -29,6 +30,13 @@ const Contact = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('submitting');
+    setErrorMessage('');
+
+    if (!web3FormsAccessKey) {
+      setStatus('error');
+      setErrorMessage('The contact form is not configured yet. Please email me directly.');
+      return;
+    }
     
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
@@ -41,18 +49,20 @@ const Contact = () => {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          // 👇 Replace with your actual Access Key
-          access_key: "YOUR_ACCESS_KEY_HERE", 
+          access_key: web3FormsAccessKey,
+          subject: 'New message from portfolio contact form',
+          from_name: data.name,
           ...data 
         })
       });
+      const result = await response.json();
 
-      if (response.ok) {
+      if (response.ok && result.success) {
         setStatus('success');
         (e.target as HTMLFormElement).reset();
         setTimeout(() => setStatus('idle'), 5000);
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(result.message || 'Failed to send message');
       }
     } catch (error) {
       console.error(error);

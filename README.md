@@ -60,12 +60,11 @@ A high-performance, accessible, and SEO-optimized developer portfolio built with
 ### Contact Form (Web3Forms)
 To make the contact form functional:
 1.  Get a free Access Key from [Web3Forms](https://web3forms.com/).
-2.  Open `src/pages/Contact.tsx`.
-3.  Replace the placeholder key:
-    ```typescript
-    access_key: "YOUR_ACCESS_KEY_HERE",
+2.  Create a `.env.local` file in the project root:
+    ```bash
+    VITE_WEB3FORMS_ACCESS_KEY=your_access_key_here
     ```
-    *(Note: For production, it is recommended to move this to a `.env` file).*
+3.  Restart the Vite development server after changing the environment file.
 
 ### Calendly Integration
 To enable the meeting scheduler:
