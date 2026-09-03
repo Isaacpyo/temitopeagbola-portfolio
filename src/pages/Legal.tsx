@@ -82,7 +82,7 @@ const Legal = () => {
                 </p>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-6 mb-3">Conformance Status</h3>
                 <p>
-                  The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.
+                  The Web Content Accessibility Guidelines defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.
                 </p>
                 <p>
                   This portfolio is <strong>partially conformant</strong> with <strong>WCAG 2.1 level AA</strong>.
