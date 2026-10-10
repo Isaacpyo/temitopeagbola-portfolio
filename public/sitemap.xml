@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://temitopeagbola.com/</loc>
+    <lastmod>2026-10-10T22:32:27.421Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://temitopeagbola.com/about</loc>
+    <lastmod>2026-10-10T22:32:27.431Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://temitopeagbola.com/projects</loc>
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://temitopeagbola.com/blog</loc>
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://temitopeagbola.com/contact</loc>
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://temitopeagbola.com/sitemap</loc>
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://temitopeagbola.com/legal</loc>
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://temitopeagbola.com/blog/build-collaborative-filtering-recommendation-system-python</loc
+    >
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://temitopeagbola.com/blog/integrating-generative-ai-top-3-pre-trained-models-react</loc
+    >
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://temitopeagbola.com/blog/modern-etl-pipelines-architecting-data-flows-ai-analytics</loc
+    >
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://temitopeagbola.com/blog/rest-vs-graphql-2025-performance-caching</loc
+    >
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://temitopeagbola.com/blog/ci-cd-beginners-deploy-production-github-actions</loc
+    >
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://temitopeagbola.com/blog/api-versioning-strategies-uri-vs-header</loc
+    >
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://temitopeagbola.com/blog/5-critical-database-design-mistakes-scaling-startups</loc
+    >
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://temitopeagbola.com/blog/docker-compose-guide-setup-full-stack-dev-environment</loc
+    >
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://temitopeagbola.com/blog/mastering-environment-variables-security-guide-node-js</loc
+    >
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://temitopeagbola.com/blog/advanced-sql-data-analysis-5-queries-developer-needs</loc
+    >
+    <lastmod>2026-10-10T22:32:27.432Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
