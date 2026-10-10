@@ -216,6 +216,40 @@ export const projects: Project[] = [
       "Real-time anomaly detection dashboard"
     ],
     challenges: "Designing a low-latency detection engine capable of analyzing mempool transactions and triggering on-chain circuit breakers before malicious transactions are mined."
+  },
+  {
+    id: 13,
+    title: "Fauward",
+    category: "Web",
+    description: "Multi-tenant white-label logistics SaaS for couriers, freight forwarders and 3PLs.\n'Ship smarter. Everywhere.'",
+    image: "/projects/fauward.png",
+    tech: ["React", "Next.js", "Fastify", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Stripe"],
+    githubUrl: "https://github.com/Isaacpyo/fauward",
+    link: "https://fauward.com",
+    features: [
+      "Fully branded tenant portals with custom domains",
+      "Shipment state machine with real-time tracking",
+      "Driver PWA with proof of delivery and QR scanning",
+      "AI-assisted customer support and ops agents"
+    ],
+    challenges: "Enforcing strict tenant isolation across a shared database while keeping plan-based feature gating consistent across five product surfaces."
+  },
+  {
+    id: 14,
+    title: "SOB Autofix",
+    category: "Web",
+    description: "Website and structured CMS for a UK vehicle diagnostics and repair garage.",
+    image: "/projects/sobautofix.png",
+    tech: ["Next.js", "React", "TypeScript", "Supabase", "Cloudflare Workers", "Playwright"],
+    githubUrl: "https://github.com/Isaacpyo/sobautofix",
+    link: "https://sobautofix.com",
+    features: [
+      "Registration lookup and online appointment booking",
+      "Staff CMS with scheduled publishing and revision rollback",
+      "Vehicle sales stock galleries and enquiry management",
+      "MFA-protected admin access with recovery codes"
+    ],
+    challenges: "Building a fail-closed integration layer so the site stays honest and usable when booking, email or storage services are unavailable."
   }
 ];
 
